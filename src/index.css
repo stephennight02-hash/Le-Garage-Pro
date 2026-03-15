@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* ── Garage Design Tokens ── */
+@theme {
+  --color-fond: #0A0A0A;
+  --color-anthracite: #1E1E1E;
+  --color-anthracite-clair: #2A2A2A;
+  --color-cyan: #00E5FF;
+  --color-cyan-glow: #00E5FF99;
+  --color-texte: #FFFFFF;
+  --color-texte-muted: #8A8A8A;
+  
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ── Global Resets ── */
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-fond);
+  color: var(--color-texte);
+  overflow-x: hidden;
+}
+
+/* ── Typography & Effects ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px var(--color-cyan-glow), 0 0 20px var(--color-cyan-glow);
+}
+
+.cyan-neon-shadow {
+  box-shadow: 0 0 15px var(--color-cyan-glow);
+}
+
+/* ── Custom Dark Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-fond);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-anthracite-clair);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan);
+}
+
+/* ── Page Transition Container ── */
+.page-transition {
+  width: 100%;
+  will-change: transform, opacity;
+}
+
+/* ── Metallic Reflection Animation ── */
+@keyframes metallic-sweep {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  50%, 100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+.metallic-btn {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-anthracite);
+  color: var(--color-texte);
+  border: 1px solid var(--color-anthracite-clair);
+  transition: all 0.3s ease;
+}
+
+.metallic-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  animation: metallic-sweep 4s infinite linear;
+}
+
+.metallic-btn.primary {
+  background: linear-gradient(135deg, var(--color-cyan) 0%, rgba(0, 229, 255, 0.5) 100%);
+  color: var(--color-fond);
+  border: none;
+  font-weight: 700;
+}
+
+.metallic-btn.primary::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
