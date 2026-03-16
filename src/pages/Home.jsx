@@ -16,7 +16,7 @@ export default function Home() {
   const yTranslate = useTransform(scrollYProgress, [0, 1], [0, 200])
 
   return (
-    <div ref={containerRef} className="min-h-screen">
+    <div ref={containerRef} className="min-h-screen pb-24 md:pb-0">
       {/* 🏎️ SECTION HERO (IMMERSIVE HD) */}
       <section className="relative h-[100svh] min-h-[600px] flex flex-col justify-end px-6 md:px-20 pb-32 overflow-hidden">
         {/* High-Def Exotic Car Image */}
@@ -47,7 +47,7 @@ export default function Home() {
             <span className="font-heading text-sm font-bold tracking-[0.4em] text-cyan uppercase mb-6 block drop-shadow-[0_0_8px_rgba(0,229,255,0.8)]">
               HAUTE PERFORMANCE
             </span>
-            <h1 className="font-heading text-6xl md:text-8xl font-black text-texte leading-[0.9] tracking-wider uppercase drop-shadow-2xl">
+            <h1 className="font-heading text-5xl md:text-8xl font-black text-texte leading-[0.9] tracking-wider uppercase drop-shadow-2xl">
               L'Atelier <br />
               <span className="text-cyan glow-text">Mécanique</span>
             </h1>
@@ -64,8 +64,8 @@ export default function Home() {
       </section>
 
       {/* 📸 AMBIENT IMAGERY SECTION */}
-      <section className="px-6 md:px-12 py-10 bg-fond relative z-10">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+      <section className="px-5 md:px-12 py-12 md:py-24 bg-fond relative z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
            {/* Detailed Rims/Brakes */}
            <motion.div 
              initial={{ opacity:0, y: 20 }} whileInView={{ opacity:1, y: 0 }} viewport={{ once:true }}
@@ -94,9 +94,9 @@ export default function Home() {
       </section>
 
       {/* 🛠️ BENTO GRID (Pillars / Strengths) */}
-      <section className="px-6 md:px-12 py-20 bg-fond relative z-10">
+      <section className="px-5 md:px-12 py-16 md:py-24 bg-fond relative z-10">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
+          <div className="mb-10 md:mb-16">
             <h2 className="font-heading text-4xl md:text-5xl font-bold uppercase tracking-widest flex items-center gap-3">
               <span className="w-8 h-[2px] bg-cyan cyan-neon-shadow"></span>
               Notre ADN

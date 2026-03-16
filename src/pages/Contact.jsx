@@ -14,7 +14,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="pt-24 md:pt-32 px-6 md:px-20 min-h-screen mb-12 max-w-7xl mx-auto">
+    <div className="pt-24 md:pt-32 px-5 md:px-20 min-h-screen pb-24 md:pb-12 max-w-7xl mx-auto overflow-x-hidden">
       
       <div className="text-center md:text-left mb-12">
         <h1 className="font-heading text-4xl md:text-5xl font-bold uppercase tracking-widest text-texte mb-4">

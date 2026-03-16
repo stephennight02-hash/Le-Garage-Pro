@@ -86,9 +86,9 @@ export default function Atelier() {
   }
 
   return (
-    <div className="pt-24 md:pt-32 px-6 md:px-20 min-h-screen flex flex-col items-center pb-24">
-      <div className="max-w-4xl text-center mb-10">
-         <h1 className="font-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-texte drop-shadow-[0_0_15px_rgba(0,229,255,0.2)]">
+    <div className="pt-24 md:pt-32 px-4 md:px-20 min-h-screen flex flex-col items-center pb-24 md:pb-12 overflow-x-hidden">
+      <div className="max-w-4xl text-center mb-8 md:mb-10 w-full">
+         <h1 className="font-heading text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-texte drop-shadow-[0_0_15px_rgba(0,229,255,0.2)]">
             Plan <span className="text-cyan glow-text">Interactif</span>
           </h1>
           <p className="font-body text-base md:text-lg text-texte-muted mt-4 max-w-2xl mx-auto leading-relaxed">
@@ -97,10 +97,10 @@ export default function Atelier() {
       </div>
 
       {/* ── User Image Background with Clickable Bounding Regions ── */}
-      <div className="relative w-full max-w-6xl aspect-[4/3] md:aspect-[21/9] bg-gradient-to-br from-gray-100 to-gray-300 rounded-3xl border border-white/20 mb-12 flex justify-center items-center overflow-hidden shadow-[inset_0_0_50px_rgba(0,0,0,0.1),0_15px_50px_rgba(0,229,255,0.05)] group">
+      <div className="relative w-full max-w-6xl aspect-video md:aspect-[21/9] bg-gradient-to-br from-gray-100 to-gray-300 rounded-2xl md:rounded-3xl border border-white/20 mb-8 md:mb-12 flex justify-center items-center overflow-hidden shadow-[inset_0_0_50px_rgba(0,0,0,0.1),0_15px_50px_rgba(0,229,255,0.05)] group">
         
         {/* The Base Photo provided by the user (Black lines SVG) */}
-        <div className="absolute inset-0 z-0 select-none pointer-events-none w-full h-full p-6 md:p-12 lg:p-16 flex items-center justify-center">
+        <div className="absolute inset-0 z-0 select-none pointer-events-none w-full h-full p-4 md:p-12 lg:p-16">
           <img 
             src="/img/carprofile.png" 
             alt="Profil Voiture" 
@@ -111,11 +111,11 @@ export default function Atelier() {
         </div>
 
         {/* Moteur (Capot Avant) */}
-        <div onClick={() => handleZoneClick('moteur')} className="absolute left-[8%] top-[38%] w-[25%] h-[25%] group/zone cursor-pointer z-10 transition-transform hover:scale-105 hover:z-20">
+        <div onClick={() => handleZoneClick('moteur')} className="absolute left-[20%] top-[45%] -translate-x-1/2 -translate-y-1/2 w-[22%] h-[28%] group/zone cursor-pointer z-10 transition-transform hover:scale-105 hover:z-20">
            <div className={`w-full h-full border-2 rounded-2xl transition-all flex items-center justify-center backdrop-blur-md shadow-2xl
                 ${activeZone?.id === 'moteur' ? 'bg-cyan/40 border-cyan' : 'bg-gray-800/40 border-gray-400/50 hover:border-cyan hover:bg-cyan/50'}
            `}>
-              <span className={`font-bold text-xs md:text-base font-heading tracking-widest text-shadow transition-all
+              <span className={`font-bold text-[10px] md:text-base font-heading tracking-widest text-shadow transition-all
                 ${activeZone?.id === 'moteur' ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'text-white group-hover/zone:text-white drop-shadow-md'}
               `}>
                 + MOTEUR
@@ -123,12 +123,25 @@ export default function Atelier() {
            </div>
         </div>
 
+        {/* Habitacle / Carrosserie */}
+        <div onClick={() => handleZoneClick('carrosserie')} className="absolute left-[52%] top-[35%] -translate-x-1/2 -translate-y-1/2 w-[35%] h-[35%] group/zone cursor-pointer z-10 transition-transform hover:scale-105 hover:z-20">
+           <div className={`w-full h-full border-2 rounded-2xl transition-all flex items-center justify-center backdrop-blur-md shadow-2xl
+                ${activeZone?.id === 'carrosserie' ? 'bg-cyan/40 border-cyan' : 'bg-gray-800/40 border-gray-400/50 hover:border-cyan hover:bg-cyan/50'}
+           `}>
+              <span className={`font-bold text-[10px] md:text-base font-heading tracking-widest text-shadow transition-all
+                ${activeZone?.id === 'carrosserie' ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'text-white group-hover/zone:text-white drop-shadow-md'}
+              `}>
+                + HABITACLE
+              </span>
+           </div>
+        </div>
+
         {/* Roues (Freins et Jantes) - Front Wheel */}
-        <div onClick={() => handleZoneClick('roues')} className="absolute left-[17%] top-[68%] w-[18%] h-[28%] group/zone cursor-pointer z-10 hover:z-20">
+        <div onClick={() => handleZoneClick('roues')} className="absolute left-[26%] top-[72%] -translate-x-1/2 -translate-y-1/2 w-[18%] h-[25%] md:h-[28%] group/zone cursor-pointer z-10 hover:z-20">
            <div className={`w-full h-full border-2 rounded-full transition-all flex items-center justify-center backdrop-blur-md shadow-2xl
                 ${activeZone?.id === 'roues' ? 'bg-cyan/40 border-cyan' : 'bg-gray-800/40 border-gray-400/50 hover:border-cyan hover:bg-cyan/50'}
            `}>
-              <span className={`font-bold text-xs md:text-base font-heading tracking-widest text-shadow transition-all
+              <span className={`font-bold text-[10px] md:text-base font-heading tracking-widest text-shadow transition-all
                 ${activeZone?.id === 'roues' ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'text-white group-hover/zone:text-white drop-shadow-md'}
               `}>
                 + FREINS
@@ -137,11 +150,11 @@ export default function Atelier() {
         </div>
         
         {/* Roues (Freins et Jantes) - Rear Wheel */}
-        <div onClick={() => handleZoneClick('roues')} className="absolute right-[17%] top-[68%] w-[18%] h-[28%] group/zone cursor-pointer z-10 hover:z-20">
+        <div onClick={() => handleZoneClick('roues')} className="absolute left-[78%] top-[72%] -translate-x-1/2 -translate-y-1/2 w-[18%] h-[25%] md:h-[28%] group/zone cursor-pointer z-10 hover:z-20">
            <div className={`w-full h-full border-2 rounded-full transition-all flex items-center justify-center backdrop-blur-md shadow-2xl
                 ${activeZone?.id === 'roues' ? 'bg-cyan/40 border-cyan' : 'bg-gray-800/40 border-gray-400/50 hover:border-cyan hover:bg-cyan/50'}
            `}>
-              <span className={`font-bold text-xs md:text-base font-heading tracking-widest text-shadow transition-all
+              <span className={`font-bold text-[10px] md:text-base font-heading tracking-widest text-shadow transition-all
                 ${activeZone?.id === 'roues' ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'text-white group-hover/zone:text-white drop-shadow-md'}
               `}>
                 + FREINS
@@ -149,28 +162,15 @@ export default function Atelier() {
            </div>
         </div>
 
-        {/* Habitacle / Carrosserie */}
-        <div onClick={() => handleZoneClick('carrosserie')} className="absolute left-[38%] top-[22%] w-[30%] h-[35%] group/zone cursor-pointer z-10 transition-transform hover:scale-105 hover:z-20">
-           <div className={`w-full h-full border-2 rounded-2xl transition-all flex items-center justify-center backdrop-blur-md shadow-2xl
-                ${activeZone?.id === 'carrosserie' ? 'bg-cyan/40 border-cyan' : 'bg-gray-800/40 border-gray-400/50 hover:border-cyan hover:bg-cyan/50'}
-           `}>
-              <span className={`font-bold text-xs md:text-base font-heading tracking-widest text-shadow transition-all
-                ${activeZone?.id === 'carrosserie' ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'text-white group-hover/zone:text-white drop-shadow-md'}
-              `}>
-                + HABITACLE
-              </span>
-           </div>
-        </div>
-
         {/* Échappement (Arrière bas) */}
-        <div onClick={() => handleZoneClick('echappement')} className="absolute right-[2%] top-[58%] w-[12%] h-[15%] group/zone cursor-pointer z-10 transition-transform hover:scale-105 hover:z-20">
+        <div onClick={() => handleZoneClick('echappement')} className="absolute left-[92%] top-[65%] -translate-x-1/2 -translate-y-1/2 w-[12%] h-[15%] md:h-[18%] group/zone cursor-pointer z-10 transition-transform hover:scale-105 hover:z-20">
            <div className={`w-full h-full border-2 rounded-xl transition-all flex items-center justify-center backdrop-blur-md shadow-2xl
                 ${activeZone?.id === 'echappement' ? 'bg-cyan/40 border-cyan' : 'bg-gray-800/40 border-gray-400/50 hover:border-cyan hover:bg-cyan/50'}
            `}>
-              <span className={`font-bold text-[10px] md:text-sm font-heading tracking-widest text-shadow transition-all text-center
+              <span className={`font-bold text-[8px] md:text-sm font-heading tracking-widest text-shadow transition-all text-center
                 ${activeZone?.id === 'echappement' ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : 'text-white group-hover/zone:text-white drop-shadow-md'}
               `}>
-                + ÉCHAPPEMENT
+                + ÉCHAP.
               </span>
            </div>
         </div>
